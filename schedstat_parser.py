@@ -191,9 +191,14 @@ class DomainStats(Stats):
 
     def parse(self, line):
         tokens = line.split()
-        self.name = tokens[0]
-        self.cpumask = tokens[1]
-        domain_values = list(map(int,tokens[2:len(tokens)]))
+
+        dname_idx = 0
+        if int(self.version) >= 17:
+            dname_idx = 1
+
+        self.name = tokens[dname_idx + 0]
+        self.cpumask = tokens[dname_idx + 1]
+        domain_values = list(map(int, tokens[dname_idx + 2 : len(tokens)]))
         keys_array = []
         desc_array = []
         only_inbuild_keys = []
