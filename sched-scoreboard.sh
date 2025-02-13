@@ -139,8 +139,8 @@ then
 
     if [ ! -f $SCRIPTDIR/bpftrace ]
     then
-	    echo "Downloading bpftrace v0.16.0...."
-	    wget https://github.com/iovisor/bpftrace/releases/download/v0.16.0/bpftrace
+	    echo "Downloading bpftrace v0.17.0...."
+	    wget https://github.com/iovisor/bpftrace/releases/download/v0.17.0/bpftrace
 	    mv bpftrace $SCRIPTDIR
 	    chmod +x $SCRIPTDIR/bpftrace
     fi
