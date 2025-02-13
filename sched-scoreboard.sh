@@ -11,7 +11,6 @@ POSITIONAL_ARGS=()
 
 TIMESTAMP=`date +%Y-%m-%d-%H-%M-%S`
 LOGDIR=/tmp/sched-scoreboard-$TIMESTAMP
-command="sleep 1"
 
 TASK_STATS_DISABLE=0
 TASK_STATS_FORCE_ENABLE=0
@@ -222,6 +221,7 @@ function handle_signal () {
 TIMESTAMP=`date +%Y-%m-%d\ %H:%M:%S`
 echo "[$TIMESTAMP] Kickstarting the test with : $command"
 trap 'handle_signal' SIGINT
+sleep 1
 $command&
 COMMAND_PID=$!
 wait $COMMAND_PID
